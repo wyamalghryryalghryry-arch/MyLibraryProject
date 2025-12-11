@@ -12,7 +12,7 @@ COPY . .
 RUN dotnet publish -c Release -o out
 
 # Use the official .NET runtime image for the final application
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:4.8 AS runtime
 WORKDIR /app
 COPY --from=build /app/out .
 
