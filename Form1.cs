@@ -97,29 +97,7 @@ namespace MyLibraryProject // تأكد أن هذا هو اسم مشروعك
             }
         }
 
-        private void btnSearch_Click_1(object sender, EventArgs e)
-        {
-            {
-                try
-                {
-                    using (SqlConnection con = new SqlConnection(connectionString))
-                    {
-                        string query = "SELECT * FROM Books WHERE Title LIKE @SearchText OR Author LIKE @SearchText";
-                        using (SqlDataAdapter da = new SqlDataAdapter(query, con))
-                        {
-                            da.SelectCommand.Parameters.AddWithValue("@SearchText", "%" + txtSearch.Text + "%");
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dataGridView1.DataSource = dt;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("حدث خطأ أثناء البحث: " + ex.Message, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+       
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
